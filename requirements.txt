@@ -48,6 +48,30 @@ streamlit>=1.30.0
 # Archivo: Kit_herramientas/Juntador_pdf/Juntador_pdfs.py
 pypdf>=4.0.0
 
+# [PROGRAMA: Convertidor de Tablas PDF, CSV y Excel a LaTeX o Markdown]
+# Archivo: Kit_herramientas/Convertidor_tablas/Convertidor_tablas.py
+pandas>=2.0.0
+openpyxl>=3.1.0
+pymupdf>=1.24.0
+tabulate>=0.9.0
+streamlit>=1.30.0
+
+# [PROGRAMA: Auditor de Procesos y Puertos Locales]
+# Archivo: Kit_herramientas/Auditor_procesos_puertos/Auditor_procesos_puertos.py
+psutil>=5.9.0
+pandas>=2.0.0
+altair>=5.0.0
+streamlit>=1.30.0
+
+# [PROGRAMA: Automatizador de Respaldos Incrementales]
+# Archivo: Kit_herramientas/Respaldos_incrementales/Respaldos_incrementales.py
+streamlit>=1.30.0
+
+# [PROGRAMA: Monitor de Latencia y Caidas de Red (Ping Logger)]
+# Archivo: Kit_herramientas/Ping_Logger/Ping_Logger.py
+pandas>=2.0.0
+streamlit>=1.30.0
+
 # ==============================================================================
 # PROGRAMAS QUE NO REQUIEREN DEPENDENCIAS EXTERNAS (BIBLIOTECA ESTANDAR):
 # ==============================================================================
