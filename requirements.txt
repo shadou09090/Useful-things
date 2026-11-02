@@ -1,0 +1,57 @@
+# ==============================================================================
+# DEPENDENCIAS DEL PROYECTO: PROGRAMAS UTILES
+# ==============================================================================
+# Este archivo lista todas las dependencias externas requeridas por los programas
+# del repositorio.
+#
+# Para instalar todas las dependencias del proyecto:
+#     pip install -r requirements.txt
+#
+# Para elegir que dependencias instalar mediante menu interactivo:
+#     python instalar_dependencias.py
+# ==============================================================================
+
+# [PROGRAMA: Descargador de Videos de YouTube]
+# Archivo: Kit_herramientas/Descargar_videos_youtube.py
+yt-dlp>=2024.1.0
+imageio-ffmpeg>=0.5.1
+
+# [PROGRAMA: Extractor y Limpiador de Metadatos EXIF]
+# Archivo: ciberseguridad/limpiador_de_metadatos.py
+Pillow>=10.0.0
+
+# [PROGRAMA: Escritor Automatizado de Mensajes (Auto-Typer)]
+# Archivo: Kit_herramientas/Escribir_mensajes.py
+pyautogui>=0.9.54
+
+# [PROGRAMA: Generador de Codigos QR por Enlace]
+# Archivo: Kit_herramientas/Generador_de_QR_por_link.py
+qrcode>=7.4.2
+Pillow>=10.0.0
+
+# [PROGRAMA: Generador de Audio por Texto (TTS)]
+# Archivo: Kit_herramientas/Genera_y_poner_audio_por_texto.py
+gTTS>=2.5.0
+
+# [PROGRAMA: Organizador Inteligente de Directorios (Smart Organizer)]
+# Archivo: Kit_herramientas/smart_organizer.py
+streamlit>=1.30.0
+
+# [PROGRAMA: Optimizador de PDFs e Imagenes y Removedor de Fondos]
+# Archivo: Kit_herramientas/Compresor_removedor_fondos/Compresor_removedor_fondos.py
+pymupdf>=1.24.0
+Pillow>=10.0.0
+rembg>=2.0.50
+streamlit>=1.30.0
+
+# [PROGRAMA: Juntador de Archivos PDF]
+# Archivo: Kit_herramientas/Juntador_pdf/Juntador_pdfs.py
+pypdf>=4.0.0
+
+# ==============================================================================
+# PROGRAMAS QUE NO REQUIEREN DEPENDENCIAS EXTERNAS (BIBLIOTECA ESTANDAR):
+# ==============================================================================
+# - [PROGRAMA: Cifrador de Mensajes (XOR)] -> ciberseguridad/Cifrador_de_mensajes.py
+# - [PROGRAMA: Cracker de Hashes SHA-256 por Fuerza Bruta] -> ciberseguridad/Hash_fuerza_bruta.py
+# - [PROGRAMA: SpectraScan / NetRecon v3.0 (Escaner de Red y Auditor Web)] -> ciberseguridad/Puertos/SpectraScan.py
+# - [PROGRAMA: Simulador del Juego de la Vida de Conway] -> Programas_para_curiosidad/Simulador_de_vida_cow.py
