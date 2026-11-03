@@ -21,6 +21,7 @@ from pathlib import Path
 try:
     import psutil
 except ImportError:
+    print("[!] Error: Se requiere el modulo 'psutil'. Instalar con: pip install psutil")
     print("\n[!] Error: Se requiere el modulo 'psutil'.")
     print("[*] Puedes instalarlo ejecutando: python instalar_dependencias.py")
     print("[*] O directamente con: pip install psutil pandas altair streamlit\n")
@@ -546,6 +547,7 @@ def interfaz_web():
     print("[*] Iniciando interfaz web interactiva...")
     print("[*] Se abrira una ventana en tu navegador.")
     print("[*] Para detenerla, cierra esta terminal o presiona Ctrl+C.\n")
+    os.system(f'streamlit run "{Path(__file__).resolve()}" -- --web')
     try:
         subprocess.run([sys.executable, "-m", "streamlit", "run", str(Path(__file__).resolve()), "--", "--web"])
     except KeyboardInterrupt:
