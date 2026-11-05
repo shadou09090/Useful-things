@@ -20,9 +20,9 @@ imageio-ffmpeg>=0.5.1
 # Archivo: ciberseguridad/limpiador_de_metadatos.py
 Pillow>=10.0.0
 
-# [PROGRAMA: Escritor Automatizado de Mensajes (Auto-Typer)]
+# [PROGRAMA: Escritor Automatizado de Mensajes (Auto-Typer Kernel C-Speed)]
 # Archivo: Kit_herramientas/Escribir_mensajes.py
-pyautogui>=0.9.54
+keyboard>=0.13.5
 
 # [PROGRAMA: Generador de Codigos QR por Enlace]
 # Archivo: Kit_herramientas/Generador_de_QR_por_link.py
@@ -47,6 +47,20 @@ streamlit>=1.30.0
 # [PROGRAMA: Juntador de Archivos PDF]
 # Archivo: Kit_herramientas/Juntador_pdf/Juntador_pdfs.py
 pypdf>=4.0.0
+
+# [PROGRAMA: Desbloqueador de PDF y Excel (GPU & CPU)]
+# Archivo: Kit_herramientas/Desbloqueador_pdf_excel/Buscador.py
+pypdf>=4.0.0
+pycryptodome>=3.19.0
+msoffcrypto-tool>=5.0.0
+streamlit>=1.30.0
+
+# [PROGRAMA: Encriptador de Archivos (PDF, Excel, CSV)]
+# Archivo: ciberseguridad/encriptador/encriptador.py
+pypdf>=4.0.0
+msoffcrypto-tool>=5.0.0
+cryptography>=41.0.0
+streamlit>=1.30.0
 
 # [PROGRAMA: Convertidor de Tablas PDF, CSV y Excel a LaTeX o Markdown]
 # Archivo: Kit_herramientas/Convertidor_tablas/Convertidor_tablas.py
