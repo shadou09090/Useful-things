@@ -112,6 +112,7 @@ pip install -r requirements.txt
   - 🌐 **Interfaz Web Interactiva (Streamlit):** Panel gráfico completo con 4 pestañas: desbloqueo interactivo, carga por drag-and-drop, visualización destacada de contraseñas encontradas, botón de descarga directa del archivo descifrado, historial persistente y benchmark GPU vs CPU.
   - 🔑 **Historial Detallado:** Almacena y muestra de forma clara la contraseña descubierta en texto plano (`historial.jsonl`) junto con la fecha y las rutas de salida.
   - ⏱️ **Benchmark integrado:** Incluye una prueba de rendimiento en vivo para medir la velocidad de cómputo en claves/segundo de tu GPU vs CPU.
+  - 📥 **Descargador de Diccionarios:** Permite descargar directamente el archivo `rockyou.txt` a la carpeta `Contraseñas/` con barra de progreso en vivo desde el menú de consola mediante la biblioteca estándar (`urllib.request`).
 * **Ejecución en consola (CLI):**
   ```bash
   # Menú interactivo

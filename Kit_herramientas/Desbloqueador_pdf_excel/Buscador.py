@@ -1,6 +1,6 @@
 
 from __future__ import annotations
-
+import urllib.request
 import argparse
 import ctypes
 import getpass
@@ -848,6 +848,51 @@ def save_password_sidecar(output_path: Path, password: str) -> Path:
     return sidecar
 
 
+def descargar_rockyou() -> Path:
+    url = "https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt"
+    directorio_base = Path(__file__).resolve().parent
+    carpeta_destino = directorio_base / "Contraseñas"
+    carpeta_destino.mkdir(parents=True, exist_ok=True)
+    ruta_archivo = carpeta_destino / "rockyou.txt"
+
+    if ruta_archivo.exists() and ruta_archivo.stat().st_size > 0:
+        print(f"[*] El diccionario ya existe en: {ruta_archivo}")
+        return ruta_archivo
+
+    print(f"[*] Descargando rockyou.txt en: {ruta_archivo} ...")
+    req = urllib.request.Request(
+        url,
+        headers={'User-Agent': 'Mozilla/5.0'}
+    )
+
+    try:
+        with urllib.request.urlopen(req) as respuesta, open(ruta_archivo, 'wb') as archivo_salida:
+            tamano_total = int(respuesta.info().get('Content-Length', 0))
+            descargado = 0
+            bloque = 65536
+
+            while True:
+                buffer = respuesta.read(bloque)
+                if not buffer:
+                    break
+                archivo_salida.write(buffer)
+                descargado += len(buffer)
+
+                if tamano_total > 0:
+                    porcentaje = (descargado / tamano_total) * 100
+                    print(
+                        f"\rProgreso: {porcentaje:.1f}% ({descargado // (1024 * 1024)} MB / {tamano_total // (1024 * 1024)} MB)",
+                        end="")
+
+        print("\n[+] Descarga completada con éxito.")
+        return ruta_archivo
+
+    except Exception as e:
+        if ruta_archivo.exists():
+            ruta_archivo.unlink()
+        raise RuntimeError(f"Error al descargar el archivo: {e}")
+
+
 # =====================================================================
 # DESBLOQUEO FINAL Y GUARDADO DEL ARCHIVO
 # =====================================================================
@@ -1287,7 +1332,8 @@ def interactive_menu() -> None:
             "5. Ver historial (con contraseñas visibles)\n"
             "6. Abrir interfaz interactiva Web (Streamlit)\n"
             "7. Probar contraseñas numéricas (0 a 999,999,999)\n"
-            "8. Salir"
+            "8. Descargar lista de contraseñas (rockyou.txt)\n"
+            "9. Salir"
         )
         option = input("Elige una opción: ").strip()
         if option == "1":
@@ -1306,6 +1352,8 @@ def interactive_menu() -> None:
         elif option == "7":
             Numbers()
         elif option == "8":
+            descargar_rockyou()
+        elif option == "9":
             print("Hasta luego.")
             return
         else:
@@ -1666,7 +1714,7 @@ def run_streamlit_ui() -> None:
 
         #### 📁 Estructura de Carpetas:
         - `por_desbloquear/`: Deposita aquí los PDFs o Excels que quieras desbloquear.
-        - `Contraseñas/`: Carpeta para listas de contraseñas (`rockyou.txt`, `contraseña.txt`).
+        - `Contraseñas/`: Carpeta para listas de contraseñas (`rockyou.txt`, `test_password.txt`).
         - `crakeados/`: Carpeta donde se guardan los archivos desbloqueados sin contraseña.
         - `historial/`: Registro persistente en JSON con fecha, ruta y contraseña encontrada.
         """)
